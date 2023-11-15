@@ -14,6 +14,8 @@ include("inc/link.php");
             display: flex;
             align-items: center;
             justify-content: center;
+            height: 100vh;
+            margin: 0;
         }
     </style>
 </head>
