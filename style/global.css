@@ -16,7 +16,7 @@ body {
 .logBox {
     background-color: pink;
     width: 500px;
-    height: 600px;
+    height: 650px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -29,7 +29,8 @@ body {
     width: 400px;
     border-bottom: 5px solid black;
     border-radius: 7px;
-    margin: 30px 0;
+    padding: 10px 0;
+    margin: 20px 0;
 }
 
 .logBox .logTop div {
@@ -60,7 +61,6 @@ body {
     width: 400px;
     align-items: center;
     height: 300px;
-    position: relative;
 }
 
 .logBox .logBot form input {
@@ -68,7 +68,7 @@ body {
     border: none;
     border-radius: 7px;
     margin: 10px 0;
-    width: 370px;
+    width: 340px;
     background-color: white;
     font-size: 18px;
 }
@@ -79,7 +79,7 @@ body {
 
 .logBox .logBot form .inputBox {
     background-color: white;
-    height: 30px;
+    height: 40px;
     display: flex;
     align-items: center;
     border: none;
@@ -96,7 +96,7 @@ body {
     height: 50px;
     width: 100px;
     position: absolute;
-    bottom: 20px;
+    bottom: 70px;
 }
 
 .logBox .logBot p {
@@ -170,6 +170,7 @@ header .navRight a {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding-bottom: 10px;
 }
 
 .genreBox div img {
@@ -200,3 +201,32 @@ header .navRight a {
     display: flex;
 }
 
+.castBox {
+    margin: 30px 0;
+}
+
+/* my List */
+
+.listHead {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+}
+
+/* profile */
+
+.profileHead {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 100px;
+}
+
+.profileHead a {
+    position: absolute;
+    right: 30px;
+    font-size: 30px;
+}

@@ -4,6 +4,6 @@
     </nav>
     <nav class="navRight">
         <a href="mylist.php">My List</a>
-        <a href="logout.php">Log Out</a>
+        <a href="profile.php">Profile</a>
     </nav>
 </header>

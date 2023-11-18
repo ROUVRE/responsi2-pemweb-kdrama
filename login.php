@@ -26,7 +26,7 @@ include("inc/link.php");
             <div>
                 <i class="fa-solid fa-user"></i>
             </div>
-            <h2>Register</h2>
+            <h2>Login</h2>
         </div>
         <div class="logBot">
             <form action="" method="post">
@@ -40,6 +40,7 @@ include("inc/link.php");
                     <div class="inputBox">
                         <i class="fa-solid fa-key"></i>
                         <input type="password" name="password" id="">
+                        <i class="fa-solid fa-eye-slash"></i>
                     </div>
                 </div>
                 <input class="submit" type="submit" name="submit" value="Daftar">

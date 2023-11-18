@@ -17,12 +17,18 @@ include("inc/link.php");
         <img src="assets/images/shinRyujin.jpeg" alt="">
     </div>
     <div class="tittleBox">
-    <p>Title</p>
-    <p>tahun rilis | Rating usia | Jumlah Season | Genre</p>
+        <p>Title</p>
+        <p>tahun rilis | Rating usia | Jumlah Season | Genre</p>
     </div>
     <p>Sinopsis</p>
-    <p>Dibintangi Oleh :</p>
-    <p>Kreator :</p>
+    <div class="castBox">
+        <p>Dibintangi Oleh :</p>
+        <p>Kreator :</p>
+    </div>
+    <div>
+        <p>Link Film</p>
+        <a href="">Link</a>
+    </div>
     <div class="commentBox">
         <div class="profile">
             <i class="fa-solid fa-user"></i>

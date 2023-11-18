@@ -1,4 +1,5 @@
 <?php
+include("inc/navbar.php");
 include("inc/link.php");
 ?>
 
@@ -8,25 +9,21 @@ include("inc/link.php");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
-    <style>
-        body {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-        }
-    </style>
+    <title>Profile</title>
 </head>
 
 <body>
+    <div class="profileHead">
+        <h1>My Profile</h1>
+        <a href="">
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+        </a>
+    </div>
     <div class="logBox">
         <div class="logTop">
             <div>
                 <i class="fa-solid fa-user"></i>
             </div>
-            <h2>Register</h2>
         </div>
         <div class="logBot">
             <form action="" method="post">
@@ -47,16 +44,9 @@ include("inc/link.php");
                         <input type="password" name="password" id="">
                         <i class="fa-solid fa-eye-slash"></i>
                     </div>
-                    <label for="confPassword">Confirm Password :</label>
-                    <div class="inputBox">
-                        <i class="fa-solid fa-key"></i>
-                        <input type="password" name="confPassword" id="">
-                        <i class="fa-solid fa-eye-slash"></i>
-                    </div>
                 </div>
-                <input class="submit" type="submit" name="submit" value="Daftar">
+                <input class="submit" type="submit" name="submit" value="Edit">
             </form>
-            <p>Sudah punya akun?<a href="login.php">Login di sini!</a></p>
         </div>
     </div>
 </body>
