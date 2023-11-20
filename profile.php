@@ -10,6 +10,17 @@ include("inc/link.php");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(180deg, rgba(57, 35, 44, 0.42) 44.79%, rgba(26, 25, 26, 0.252) 89.06%, rgba(26, 25, 25, 0) 100%);
+        }
+    </style>
 </head>
 
 <body>

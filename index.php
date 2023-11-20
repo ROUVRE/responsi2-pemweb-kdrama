@@ -15,6 +15,10 @@ include("inc/link.php");
 <body>
     <div class="banner">
         <img src="assets/images/shinRyujin.jpeg" alt="">
+        <h2>K - Drama</h2>
+        <div>
+            <p>Dive into the magic of K-drama: profound stories, mesmerizing acting, and captivating visuals, just one click away!</p>
+        </div>
     </div>
     <div class="movieBox">
         <h1>Nama Genre</h1>

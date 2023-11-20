@@ -43,10 +43,14 @@ include("inc/link.php");
                         <i class="fa-solid fa-eye-slash"></i>
                     </div>
                 </div>
-                <input class="submit" type="submit" name="submit" value="Daftar">
+                <input class="submit" type="submit" name="submit" value="Log in">
             </form>
             <p>Belum punya akun?<a href="register.php">Register di sini!</a></p>
         </div>
+    </div>
+    <div class="regInfo" id="logFail">
+        <h2>Login Gagal !!</h2>
+        <button>OK</button>
     </div>
 </body>
 

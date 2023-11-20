@@ -26,12 +26,12 @@ include("inc/link.php");
             <div>
                 <i class="fa-solid fa-user"></i>
             </div>
-            <h2>Register</h2>
+            <h2>Registrasi</h2>
         </div>
         <div class="logBot">
             <form action="" method="post">
                 <div>
-                    <label for="name">Name :</label>
+                    <label for="name">Nama :</label>
                     <div class="inputBox">
                         <i class="fa-solid fa-user"></i>
                         <input type="text" name="Name">
@@ -58,6 +58,14 @@ include("inc/link.php");
             </form>
             <p>Sudah punya akun?<a href="login.php">Login di sini!</a></p>
         </div>
+    </div>
+    <div class="regInfo" id="regSucced">
+        <h2>Registrasi Berhasil !!</h2>
+        <button>OK</button>
+    </div>
+    <div class="regInfo" id="regFail">
+        <h2>Registrasi Gagal !!</h2>
+        <button>OK</button>
     </div>
 </body>
 
