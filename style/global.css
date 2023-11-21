@@ -4,12 +4,18 @@ body {
   margin: 0;
   padding: 0;
   margin-top: 100px;
+  margin-bottom: 100px;
 }
 
 * {
   margin: 0;
   padding: 0;
   font-family: Roboto;
+  text-decoration: none;
+}
+
+.margin {
+  padding-left: 20px;
 }
 
 /* register & log out*/
@@ -215,13 +221,36 @@ header .navRight a {
   width: 100%;
 }
 
+.movieBg {
+  background: linear-gradient(to bottom, #5B353C, #000000);
+  margin: 0;
+  height: auto;
+}
+
+.movieBg .movieBoxTitle {
+  text-align: center;
+  padding-top: 30px;
+  color: white;
+}
+
 .movieBox {
-  margin-top: 30px;
-  padding: 0 30px;
+  /* margin-top: 30px; */
+  padding: 15px 30px;
+  position: relative;
 }
 
 .movieBox h1 {
   margin-bottom: 20px;
+  color: rgba(187, 136, 157, 1);
+
+}
+
+.movieBox i {
+  color: rgba(146, 65, 98, 1);
+  position: absolute;
+  right: 30px;
+  top: 200px  ;
+  font-size: 50px;
 }
 
 .genreBox {
@@ -234,7 +263,7 @@ header .navRight a {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-bottom: 10px;
+  /* padding-bottom: 10px; */
 }
 
 .genreBox div img {
@@ -258,13 +287,40 @@ color: white;
 
 /* movie page */
 
+.tittleBox p,
+.castBox p,
+.linkBox,
+.sinopsis,
+.commentBox {
+  color: white;
+}
+
 .tittleBox {
-  margin: 30px 0;
+  padding: 30px 0;
 }
 
 .commentBox {
   margin-top: 30px;
   display: flex;
+  flex-direction: column;
+}
+
+.commentBox .komentar,
+.commentBox form {
+  padding: 15px 0;
+}
+
+.commentBox form input {
+  border: none;
+  width: 100px;
+  height: 50px;
+  font-size: 16px;
+  margin-left: 30px;
+}
+
+.commentBox form .komentarInput {
+  display: flex;
+  align-items: end;
 }
 
 .castBox {
@@ -274,11 +330,24 @@ color: white;
 /* my List */
 
 .listHead {
-  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 250px;
+  color: white;
+  margin: 0 50px;
+}
+
+.listHead i {
+  font-size: 40px;
+  color: black;
+  background: rgba(229, 203, 216, 1);
+  width: 70px;
+  height: 70px;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 200px;
+  border-radius: 35px;
 }
 
 /* profile */
@@ -297,4 +366,18 @@ color: white;
   position: absolute;
   right: 30px;
   font-size: 30px;
+}
+
+footer {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  z-index: 10;
+  color: white;
+  background: linear-gradient(to bottom, #000000, #5B353C);
 }

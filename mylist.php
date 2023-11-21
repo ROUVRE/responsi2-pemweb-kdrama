@@ -1,6 +1,7 @@
 <?php
 include("inc/navbar.php");
 include("inc/link.php");
+include("inc/footer.php");
 ?>
 
 <!DOCTYPE html>
@@ -13,16 +14,20 @@ include("inc/link.php");
 </head>
 
 <body>
-    <div class="listHead">
-        <h1>My List</h1>
-    </div>
-    <div class="listBox">
-        <div class="genreBox">
-            <div>
-                <img src="assets/images/hwangYeji.jpeg" alt="">
-                <h2>Title</h2>
-                <button>Learn More</button>
-                <button>Delete</button>
+    <div class="movieBg margin">
+        <div class="listHead">
+            <p style="opacity: 0;">apakek</p>
+            <h1>My List</h1>
+            <i class="fa-solid fa-pen"></i>
+        </div>
+        <div class="listBox">
+            <div class="genreBox">
+                <div>
+                    <img src="assets/images/hwangYeji.jpeg" alt="">
+                    <h2>Title</h2>
+                    <button>Learn More</button>
+                    <button>Delete</button>
+                </div>
             </div>
         </div>
     </div>
