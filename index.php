@@ -10,45 +10,49 @@ include("inc/footer.php")
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=MonteCarlo&family=Playball&display=swap" rel="stylesheet">
     <title>Index</title>
 </head>
 
 <body>
     <div class="banner">
         <img src="assets/images/shinRyujin.jpeg" alt="">
-        <h2>K - Drama</h2>
+        <h2 style="font-family: MonteCarlo;">K - Drama</h2>
         <div>
             <p>Dive into the magic of K-drama: profound stories, mesmerizing acting, and captivating visuals, just one
                 click away!</p>
         </div>
     </div>
     <div class="movieBg">
-        <h1 class="movieBoxTitle">Genre</h1>
-        <a href="movie.php">
+        <h1 class="movieBoxTitle" style="font-family: Kaushan Script;">Genre</h1>
         <div class="movieBox">
             <h1>Nama Genre</h1>
             <div class="genreBox">
                 <div>
                     <img src="assets/images/hwangYeji.jpeg" alt="">
-                    <h2>Title</h2>
-                    <button>Learn More</button>
+                    <h2 style="font-family: 'Playball', cursive;">Title</h2>
+                    <a class="button" href="movie.php">Learn More</a>
+                    <a class="button" href="">Add to List</a>
                 </div>
+                <!-- nambah movie disini brow -->
             </div>
-            <i class="fa-solid fa-chevron-right"></i>
-        </div>
-        </a>
-        <div class="movieBox">
-            <h1>Nama Genre</h1>
-            <div class="genreBox">
-                <div>
-                    <img src="assets/images/hwangYeji.jpeg" alt="">
-                    <h2>Title</h2>
-                    <button>Learn More</button>
-                </div>
-            </div>
-            <i class="fa-solid fa-chevron-right"></i>
+            <i class="fa-solid fa-chevron-right" onclick="scrollGenreBox(1)"></i>
         </div>
     </div>
+
+    <script>
+        function scrollGenreBox(direction) {
+            const genreBox = document.querySelector('.genreBox');
+            const scrollAmount = 300; 
+            genreBox.scrollLeft += direction * scrollAmount;
+        }
+    </script>
 
 </body>
 

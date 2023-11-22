@@ -8,6 +8,7 @@ include("inc/link.php");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Roboto:wght@300;400;500&family=Signika:wght@300;400;500&display=swap" rel="stylesheet">
     <title>Login</title>
     <style>
         body {
@@ -16,6 +17,10 @@ include("inc/link.php");
             justify-content: center;
             height: 100vh;
             margin: 0;
+        }
+
+        * {
+            font-family: Inter;
         }
     </style>
 </head>
@@ -29,17 +34,17 @@ include("inc/link.php");
             <h2>Login</h2>
         </div>
         <div class="logBot">
-            <form action="" method="post">
+            <form action="" method="post" onsubmit="return validateForm()">
                 <div>
                     <label for="username">Username :</label>
                     <div class="inputBox">
                         <i class="fa-solid fa-user"></i>
-                        <input type="text" name="username">
+                        <input type="text" name="username" oninput="validateInput(this)">
                     </div>
                     <label for="password">Password :</label>
                     <div class="inputBox">
                         <i class="fa-solid fa-key"></i>
-                        <input type="password" name="password" id="">
+                        <input type="password" name="password" id="password" oninput="validateInput(this)">
                         <i class="fa-solid fa-eye-slash"></i>
                     </div>
                 </div>
@@ -52,6 +57,24 @@ include("inc/link.php");
         <h2>Login Gagal !!</h2>
         <button>OK</button>
     </div>
+
+    <script>
+        function validateInput(input) {
+            input.value = input.value.replace(/'/g, '');
+        }
+
+        function validateForm() {
+            var username = document.getElementsByName('username')[0].value;
+            var password = document.getElementById('password').value;
+
+            if (username.includes("'") || password.includes("'")) {
+                alert('Tanda petik tidak diizinkan pada username atau password');
+                return false;
+            }
+
+            return true;
+        }
+    </script>
 </body>
 
 </html>
