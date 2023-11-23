@@ -2,57 +2,42 @@ CREATE DATABASE website_kdrama;
 
 USE website_kdrama;
 
-CREATE TABLE akun (
-    id_akun INT AUTO_INCREMENT PRIMARY KEY,
-    nama VARCHAR(240) NOT NULL,
-    username VARCHAR(25) NOT NULL,
-    tanggal_lahir DATE NOT NULL,
-    password VARCHAR(32) NOT NULL,
-    CONSTRAINT cek_nama CHECK (nama REGEXP '^[a-zA-Z ]+$')
+CREATE TABLE user (
+    user_id INT PRIMARY KEY AUTO_INCREMENT,
+    nama VARCHAR(255) NOT NULL CHECK (nama REGEXP '^[A-Za-z ]+$'),
+    username VARCHAR(25) NOT NULL UNIQUE,
+    password VARCHAR(20) NOT NULL,
+    role ENUM('admin', 'user') NOT NULL
 );
 
 CREATE TABLE film (
-    id_film INT AUTO_INCREMENT PRIMARY KEY,
+    film_id INT PRIMARY KEY AUTO_INCREMENT,
     judul VARCHAR(255) NOT NULL,
-    sutradara VARCHAR(40) NOT NULL,
-    tahun_rilis YEAR NOT NULL,
-    rating INT CHECK (rating >= 0 AND rating <= 10)
+    tahun_rilis YEAR,
+    rating_usia VARCHAR(10),
+    jumlah_season INT,
+    genre VARCHAR(255),
+    sinopsis TEXT,
+    aktor VARCHAR(255),
+    director VARCHAR(255),
+    link VARCHAR(255),
+    gambar VARCHAR(255) -- Masukkin directory file foto nya
 );
 
-CREATE TABLE aktor (
-    id_aktor INT PRIMARY KEY,
-    nama_aktor VARCHAR(255) NOT NULL
-);
-
-CREATE TABLE film_aktor (
-    id_film INT,
-    id_aktor INT,
-    PRIMARY KEY (id_film, id_aktor),
-    FOREIGN KEY (id_film) REFERENCES film(id_film),
-    FOREIGN KEY (id_aktor) REFERENCES aktor(id_aktor)
-);
-
-CREATE TABLE review (
-    id_review INT AUTO_INCREMENT PRIMARY KEY,
-    id_film INT,
-    user VARCHAR(255) NOT NULL,
-    nilai INT CHECK (nilai >= 0 AND nilai <= 10),
+CREATE TABLE comment (
+    comment_id INT PRIMARY KEY AUTO_INCREMENT,
+    user_id INT,
+    film_id INT,
     komentar TEXT,
-    waktu_review TIMESTAMP,
-    FOREIGN KEY (id_film) REFERENCES film(id_film)
+    rating INT CHECK (rating >= 1 AND rating <= 5),
+    FOREIGN KEY (user_id) REFERENCES user(user_id),
+    FOREIGN KEY (film_id) REFERENCES film(film_id)
 );
 
-CREATE TABLE list_kustom (
-    id_list INT PRIMARY KEY NOT NULL,
-    id_akun INT,
-    judul_list VARCHAR(255) NOT NULL,
-    FOREIGN KEY (id_akun) REFERENCES akun(id_akun)
-);
-
-CREATE TABLE film_dalam_list (
-    id_listed_film INT PRIMARY KEY,
-    id_list INT,
-    id_film INT,
-    FOREIGN KEY (id_list) REFERENCES list_kustom(id_list),
-    FOREIGN KEY (id_film) REFERENCES film(id_film)
+CREATE TABLE myList (
+    myList_id INT PRIMARY KEY AUTO_INCREMENT,
+    user_id INT,
+    film_id INT,
+    FOREIGN KEY (user_id) REFERENCES user(user_id),
+    FOREIGN KEY (film_id) REFERENCES film(film_id)
 );
