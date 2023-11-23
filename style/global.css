@@ -135,9 +135,14 @@ body {
   justify-content: center;
 }
 
+.regInfo i {
+  font-size: 80px;
+}
+
 .regInfo h2 {
   font-size: 50px;
   margin: 20px 0;
+  text-align: center;
 }
 
 .regInfo button {
@@ -267,6 +272,7 @@ header .navRight a {
   align-items: center;
   justify-content: center;
   width: 250px;
+  /* margin harus di adjust */
   margin-right: 20px;
 }
 
@@ -646,6 +652,62 @@ header .navRight a {
 .buttonContainer #submit {
   background: rgba(229, 203, 216, 1);
   box-shadow: 5px 15px 3px 0px rgba(142, 140, 141, 1);
+}
+
+#addSucced,
+#addFail,
+#deleteSucced,
+#deleteFail,
+#modalConfirm {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.modalConfirm {
+  position: absolute;
+  background-color: white;
+  width: 650px;
+  height: 403px;
+  border-radius: 20px;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.modalConfirm h2 {
+  font-size: 40px;
+  margin: 20px 0;
+  text-align: center;
+}
+
+.modalConfirm div {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+.modalConfirm button {
+  width: 140px;
+  height: 80px;
+  border-radius: 20px;
+  font-size: 40px;
+  background: linear-gradient(0deg, #924162, #924162);
+  border: 1px solid rgba(0, 0, 0, 1);
+  box-shadow: 4px 8px 4px 0px rgba(105, 67, 90, 0.85);
+  color: white;
+}
+
+#modalCancel {
+  background: rgba(65, 93, 146, 1);
+  box-shadow: 4px 8px 4px 0px rgba(105, 67, 90, 0.85);
+}
+
+#modalOk {
+  background: rgba(177, 98, 131, 0.85);
+  box-shadow: 4px 8px 4px 0px rgba(105, 67, 90, 0.85);
 }
 
 /* footer */

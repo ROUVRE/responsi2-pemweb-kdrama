@@ -84,6 +84,15 @@
             </div>
         </div>
     </form>
+    <div class="regInfo" id="editSucced">
+        <h2>Edit Data Film Berhasil !!</h2>
+        <button>OK</button>
+    </div>
+    <div class="regInfo" id="editFail">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <h2>Edit Data Film Gagal !!</h2>
+        <button>OK</button>
+    </div>
 
     <footer>
         <h2>© Copyright 2023 K-Drama</h2>

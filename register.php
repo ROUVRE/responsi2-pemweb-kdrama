@@ -98,6 +98,7 @@ if (isset($_POST['submit'])) {
     </div>
     <div class="regInfo" id="regFail"
         style="<?php echo ($registrationStatus === 'fail') ? 'display: flex;' : 'display: none;'; ?>">
+        <i class="fa-solid fa-triangle-exclamation"></i>
         <h2>Registrasi Gagal !!</h2>
         <button onclick="closeModal('regFail')">OK</button>
     </div>

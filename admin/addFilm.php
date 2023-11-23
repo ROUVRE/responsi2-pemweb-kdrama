@@ -80,10 +80,19 @@
             <textarea name="sinopsis" id="" cols="30" rows="10"></textarea>
             <div class="buttonContainer">
                 <input type="submit" name="cancel" id="cancel" value="cancel">
-                <input type="submit" name="submit" id="submit" >
+                <input type="submit" name="submit" id="submit">
             </div>
         </div>
     </form>
+    <div class="regInfo" id="addSucced">
+        <h2>Tambah Data Berhasil !!</h2>
+        <button>OK</button>
+    </div>
+    <div class="regInfo" id="addFail">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <h2>Tambah Data Gagal !!</h2>
+        <button>OK</button>
+    </div>
 
     <footer>
         <h2>© Copyright 2023 K-Drama</h2>
@@ -91,22 +100,22 @@
 
     <script>
         function previewFile(inputId, imageId) {
-        var fileInput = document.getElementById(inputId);
-        var imagePreview = document.getElementById(imageId);
+            var fileInput = document.getElementById(inputId);
+            var imagePreview = document.getElementById(imageId);
 
-        if (fileInput.files.length > 0) {
-            var file = fileInput.files[0];
-            var reader = new FileReader();
+            if (fileInput.files.length > 0) {
+                var file = fileInput.files[0];
+                var reader = new FileReader();
 
-            reader.onload = function (e) {
-                imagePreview.src = e.target.result;
-            };
+                reader.onload = function (e) {
+                    imagePreview.src = e.target.result;
+                };
 
-            reader.readAsDataURL(file);
-        } else {
-            imagePreview.src = '';
+                reader.readAsDataURL(file);
+            } else {
+                imagePreview.src = '';
+            }
         }
-    }
     </script>
 </body>
 

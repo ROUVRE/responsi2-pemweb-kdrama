@@ -80,6 +80,7 @@ if (isset($_POST['submit'])) {
     </div>
     <div class="regInfo" id="logFail"
         style="<?php echo ($loginStatus === 'fail') ? 'display: flex;' : 'display: none;'; ?>">
+        <i class="fa-solid fa-triangle-exclamation"></i>
         <h2>Login Gagal !!</h2>
         <button onclick="closeModal('logFail')">OK</button>
     </div>

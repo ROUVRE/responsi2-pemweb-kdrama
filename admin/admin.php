@@ -76,6 +76,22 @@
             </div>
         </div>
     </div>
+    <div class="regInfo" id="deleteSucced">
+        <h2>Hapus Film Berhasil !!</h2>
+        <button>OK</button>
+    </div>
+    <div class="regInfo" id="deleteFail">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <h2>Hapus Film Gagal !!</h2>
+        <button>OK</button>
+    </div>
+    <div class="modalConfirm" id="modalConfirm">
+        <h2>Yakin Ingin Menghapus Film?</h2>
+        <div>
+            <button id="modalCancel">Cancel</button>
+            <button id="modalOk">OK</button>
+        </div>
+    </div>
     <footer>
         <h2>© Copyright 2023 K-Drama</h2>
     </footer>
