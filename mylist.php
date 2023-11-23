@@ -2,6 +2,9 @@
 include("inc/navbar.php");
 include("inc/link.php");
 include("inc/footer.php");
+include("koneksi.php");
+include("session.php");
+check_session();
 ?>
 
 <!DOCTYPE html>

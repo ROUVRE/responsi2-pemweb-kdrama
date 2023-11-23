@@ -1,6 +1,9 @@
 <?php
 include("inc/navbar.php");
 include("inc/link.php");
+include("koneksi.php");
+include("session.php");
+check_session();
 ?>
 
 <!DOCTYPE html>
