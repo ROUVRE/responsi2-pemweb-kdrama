@@ -3,25 +3,24 @@ include("inc/link.php");
 include("koneksi.php");
 include("session.php");
 
-if(isset($_POST['submit'])){
-	$username = $_POST['username'];
-	$password = $_POST['password'];
-	
-	$sql = "select * from user where username='$username' and password='$password' ";
-	$query = mysqli_query($conn, $sql);
-	$hasil = mysqli_fetch_array($query);
-	if($hasil['username']==$username && $hasil['password']==$password){
-            $_SESSION['user_id'] = $user_id; 
-            header("Location: index.php");
-            exit();		
-	}else{
-		?>
-		<script>
-            alert('Username / Password yang dimasukkan salah');
-		    document.location='login.php';
-		</script>
-		<?php
-	}
+$loginStatus = null;
+
+if (isset($_POST['submit'])) {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    $sql = "SELECT * FROM user WHERE username='$username' AND password='$password'";
+    $query = mysqli_query($conn, $sql);
+    $hasil = mysqli_fetch_array($query);
+
+    if ($hasil) {
+        $_SESSION['user_id'] = $hasil['id'];
+        header("Location: index.php");
+        exit();
+    } else {
+        // modal
+        $loginStatus = 'fail';
+    }
 }
 ?>
 
@@ -31,7 +30,9 @@ if(isset($_POST['submit'])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Roboto:wght@300;400;500&family=Signika:wght@300;400;500&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Roboto:wght@300;400;500&family=Signika:wght@300;400;500&display=swap"
+        rel="stylesheet">
     <title>Login</title>
     <style>
         body {
@@ -67,7 +68,8 @@ if(isset($_POST['submit'])){
                     <label for="password">Password :</label>
                     <div class="inputBox">
                         <i class="fa-solid fa-key"></i>
-                        <input type="password" name="password" id="password" maxlength="20" oninput="validateInput(this)">
+                        <input type="password" name="password" id="password" maxlength="20"
+                            oninput="validateInput(this)">
                         <i class="fa-solid fa-eye-slash"></i>
                     </div>
                 </div>
@@ -76,9 +78,10 @@ if(isset($_POST['submit'])){
             <p>Belum punya akun?<a href="register.php">Register di sini!</a></p>
         </div>
     </div>
-    <div class="regInfo" id="logFail">
+    <div class="regInfo" id="logFail"
+        style="<?php echo ($loginStatus === 'fail') ? 'display: flex;' : 'display: none;'; ?>">
         <h2>Login Gagal !!</h2>
-        <button>OK</button>
+        <button onclick="closeModal('logFail')">OK</button>
     </div>
 
     <script>
@@ -96,6 +99,10 @@ if(isset($_POST['submit'])){
             }
 
             return true;
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
         }
     </script>
 </body>
