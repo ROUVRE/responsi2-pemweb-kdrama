@@ -1,5 +1,20 @@
 <?php
 include("inc/link.php");
+include("koneksi.php");
+include("session.php");
+
+if(isset($_POST['submit'])){
+    $nama = $_POST['Name'];
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $role = 'user';
+
+    $query = "INSERT INTO user (nama, username, password, role) VALUES ('$nama', '$username', '$password', '$role')";
+    mysqli_query($conn, $query);
+
+    header('Location: login.php');
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -41,23 +56,23 @@ include("inc/link.php");
                     <label for="name">Nama :</label>
                     <div class="inputBox">
                         <i class="fa-solid fa-user"></i>
-                        <input type="text" name="Name" oninput="validateInput(this)">
+                        <input type="text" name="Name" maxlength="40" oninput="validateInput(this)">
                     </div>
                     <label for="username">Username :</label>
                     <div class="inputBox">
                         <i class="fa-solid fa-user"></i>
-                        <input type="text" name="username" oninput="validateInput(this)">
+                        <input type="text" name="username" maxlength="25" oninput="validateInput(this)">
                     </div>
                     <label for="password">Password :</label>
                     <div class="inputBox">
                         <i class="fa-solid fa-key"></i>
-                        <input type="password" name="password" id="password" oninput="validateInput(this)">
+                        <input type="password" name="password" id="password" maxlength="20" oninput="validateInput(this)">
                         <i class="fa-solid fa-eye-slash"></i>
                     </div>
                     <label for="confPassword">Confirm Password :</label>
                     <div class="inputBox">
                         <i class="fa-solid fa-key"></i>
-                        <input type="password" name="confPassword" id="confPassword" oninput="validateInput(this)">
+                        <input type="password" name="confPassword" id="confPassword" maxlength="20" oninput="validateInput(this)">
                         <i class="fa-solid fa-eye-slash"></i>
                     </div>
                 </div>
