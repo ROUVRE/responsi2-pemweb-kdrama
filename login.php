@@ -13,8 +13,8 @@ if (isset($_POST['submit'])) {
     $query = mysqli_query($conn, $sql);
     $hasil = mysqli_fetch_array($query);
 
-    if ($hasil) {
-        $_SESSION['user_id'] = $hasil['id'];
+    if ($hasil['username']==$username && $hasil['password']==$password) {
+        $_SESSION['user_id'] = $user_id;
         header("Location: index.php");
         exit();
     } else {
