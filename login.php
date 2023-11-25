@@ -11,10 +11,9 @@ if (isset($_POST['submit'])) {
 
     $sql = "SELECT * FROM user WHERE username='$username' AND password='$password'";
     $query = mysqli_query($conn, $sql);
-    $hasil = mysqli_fetch_array($query);
 
-    if ($hasil['username']==$username && $hasil['password']==$password) {
-        $_SESSION['user_id'] = $user_id;
+    if (mysqli_num_rows($query) > 0) {
+        set_login_session($user_id, $nama, $username, $role);
         header("Location: index.php");
         exit();
     } else {
