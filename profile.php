@@ -4,6 +4,39 @@ include("inc/link.php");
 include("koneksi.php");
 include("session.php");
 check_session();
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $nama = $_POST["Name"];
+    $username = $_POST["username"];
+    $password = $_POST["password"];
+
+    if (!empty($nama) && !empty($username) && !empty($password)) {
+        $pengguna = $_SESSION["username"];
+
+        $query = "UPDATE user SET nama='$nama', username='$username', password='$password' WHERE username='$pengguna'";
+
+        if (mysqli_query($conn, $query)) {
+            set_login_session($_SESSION['user_id'], $nama, $username, $_SESSION['role']);
+
+            echo "Data berhasil diperbarui!";
+        } else {
+            echo "Gagal memperbarui data: " . mysqli_error($conn);
+        }
+    } else {
+        echo "Tolong isi semua field!";
+    }
+}
+
+$pengguna = $_SESSION["username"];
+$query = "SELECT nama FROM user WHERE username='$pengguna'";
+$result = mysqli_query($conn, $query);
+
+if ($result) {
+    $user_data = mysqli_fetch_assoc($result);
+    $default_nama = $user_data['nama'];
+} else {
+    $default_nama = "";
+}
 ?>
 
 <!DOCTYPE html>
@@ -29,8 +62,8 @@ check_session();
 <body>
     <div class="profileHead">
         <h1>My Profile</h1>
-        <a href="">
-            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+        <a href="logout.php">
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>  <!--Tombol logout kadang masih nggak muncul-->
         </a>
     </div>
     <div class="logBox">
@@ -45,12 +78,12 @@ check_session();
                     <label for="name">Name :</label>
                     <div class="inputBox">
                         <i class="fa-solid fa-user"></i>
-                        <input type="text" name="Name">
+                        <input type="text" name="Name" value="<?php echo $default_nama; ?>">
                     </div>
                     <label for="username">Username :</label>
                     <div class="inputBox">
                         <i class="fa-solid fa-user"></i>
-                        <input type="text" name="username">
+                        <input type="text" name="username" value="<?php echo $_SESSION['username']; ?>">
                     </div>
                     <label for="password">Password :</label>
                     <div class="inputBox">
