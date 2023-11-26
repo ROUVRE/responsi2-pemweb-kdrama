@@ -53,18 +53,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
-    <header>
+<header>
         <nav class="navLeft">
-            <a href="#">
+            <a href="admin.php">
                 <h1 style="font-family: MonteCarlo;">K-Drama</h1>
             </a>
         </nav>
+        <nav class="navRight">
+        <a href="../logout.php">Logout</a>
+    </nav>
     </header>
     <h1 class="crudTitle" style="font-family: 'Kaushan Script', cursive;">Tambah Film</h1>
     <form action="addFilm.php" method="POST">
         <div class="crudContainer">
             <label for="judul">Judul Film</label>
-            <input type="text" name="judul" id="judul">
+            <input type="text" name="judul" id="judul" required>
             <div class="imgContainer">
                 <div>
                     <label for="">Banner Film</label>
@@ -75,7 +78,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <img id="bannerPreview" src="" alt="">
                     </label>
                     <input type="file" name="banner" id="banner" style="display: none;"
-                        onchange="previewFile('banner', 'bannerPreview', 'bannerFileContainer')">
+                        onchange="previewFile('banner', 'bannerPreview', 'bannerFileContainer')" required>
                 </div>
                 <div>
                     <label for="">Poster Film</label>
@@ -86,29 +89,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <img id="posterPreview" src="" alt="">
                     </label>
                     <input type="file" name="poster" id="poster" style="display: none;"
-                        onchange="previewFile('poster', 'posterPreview', 'posterFileContainer')">
+                        onchange="previewFile('poster', 'posterPreview', 'posterFileContainer')" required>
                 </div>
             </div>
             <label for="director">Director</label>
-            <input type="text" name="director" id="director">
+            <input type="text" name="director" id="director" required>
             <label for="cast">Cast Utama</label>
-            <input type="text" name="cast" id="cast">
+            <input type="text" name="cast" id="cast" required>
             <div class="dateContainer">
                 <div>
                     <label for="date">Date Release</label>
-                    <input type="date" name="date" id="date">
+                    <input type="date" name="date" id="date" required>
                 </div>
                 <div>
                     <label for="usia">Batas Usia</label>
-                    <input type="text" name="usia" id="usia">
+                    <input type="text" name="usia" id="usia" required>
                 </div>
             </div>
             <label for="genre">Genre</label>
-            <input type="text" name="genre" id="genre">
+            <input type="text" name="genre" id="genre" required>
             <label for="link">Link Film</label>
-            <input type="text" name="link" id="link">
+            <input type="text" name="link" id="link" required>
             <label for="sinopsis">Sinopsis</label>
-            <textarea name="sinopsis" id="sinopsis" cols="30" rows="10"></textarea>
+            <textarea name="sinopsis" id="sinopsis" cols="30" rows="10" required></textarea>
             <div class="buttonContainer">
             <a href="admin.php">
                 <input type="button" name="cancel" id="cancel" value="cancel">

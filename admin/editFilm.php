@@ -22,18 +22,21 @@
 </head>
 
 <body>
-    <header>
+<header>
         <nav class="navLeft">
-            <a href="#">
+            <a href="admin.php">
                 <h1 style="font-family: MonteCarlo;">K-Drama</h1>
             </a>
         </nav>
+        <nav class="navRight">
+        <a href="../logout.php">Logout</a>
+    </nav>
     </header>
     <h1 class="crudTitle" style="font-family: 'Kaushan Script', cursive;">Tambah Film</h1>
     <form action="">
         <div class="crudContainer">
             <label for="judul">Judul Film</label>
-            <input type="text" name="judul" id="">
+            <input type="text" name="judul" id="" required>
             <div class="imgContainer">
                 <div>
                     <label for="">Banner Film</label>
@@ -44,7 +47,7 @@
                         <img id="bannerPreview" src="" alt="">
                     </label>
                     <input type="file" name="banner" id="banner" style="display: none;"
-                        onchange="previewFile('banner', 'bannerPreview', 'bannerFileContainer')">
+                        onchange="previewFile('banner', 'bannerPreview', 'bannerFileContainer')" required>
                 </div>
                 <div>
                     <label for="">Poster Film</label>
@@ -55,29 +58,29 @@
                         <img id="posterPreview" src="" alt="">
                     </label>
                     <input type="file" name="poster" id="poster" style="display: none;"
-                        onchange="previewFile('poster', 'posterPreview', 'posterFileContainer')">
+                        onchange="previewFile('poster', 'posterPreview', 'posterFileContainer')" required>
                 </div>
             </div>
             <label for="director">Director</label>
-            <input type="text" name="director" id="">
+            <input type="text" name="director" id="" required>
             <label for="cast">Cast Utama</label>
-            <input type="text" name="cast" id="">
+            <input type="text" name="cast" id="" required>
             <div class="dateContainer">
                 <div>
                     <label for="date">Date Release</label>
-                    <input type="date" name="date" id="">
+                    <input type="date" name="date" id="" required>
                 </div>
                 <div>
                     <label for="usia">Batas Usia</label>
-                    <input type="text" name="usia" id="">
+                    <input type="text" name="usia" id="" required>
                 </div>
             </div>
             <label for="genre">Genre</label>
-            <input type="text" name="genre" id="">
+            <input type="text" name="genre" id="" required>
             <label for="link">Link Film</label>
-            <input type="text" name="link" id="">
+            <input type="text" name="link" id="" required>
             <label for="sinopsis">Sinopsis</label>
-            <textarea name="sinopsis" id="" cols="30" rows="10"></textarea>
+            <textarea name="sinopsis" id="" cols="30" rows="10" required></textarea>
             <div class="buttonContainer">
                 <input type="submit" name="cancel" id="cancel" value="cancel">
                 <input type="submit" name="submit" id="submit" >

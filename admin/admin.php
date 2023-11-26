@@ -40,6 +40,9 @@ $result = mysqli_query($conn, $query);
                 <h1 style="font-family: MonteCarlo;">K-Drama</h1>
             </a>
         </nav>
+        <nav class="navRight">
+        <a href="../logout.php">Logout</a>
+    </nav>
     </header>
     <div class="filmContainer">
         <div class="pageTitle">
