@@ -622,6 +622,26 @@ header .navRight a {
   position: relative;
 }
 
+.imgContainer #bannerImg {
+  width: 550px;
+  height: 250px;
+}
+
+.imgContainer #bannerImg img {
+  max-width: 95%;
+  max-height: 95%;
+}
+
+.imgContainer #posterImg img {
+  max-width: 95%;
+  max-height: 95%;
+}
+
+.imgContainer #posterImg {
+  width: 200px;
+  height: 250px;
+}
+
 .imgContainer .file p {
   font-size: 16px;
   margin: 10px 0;

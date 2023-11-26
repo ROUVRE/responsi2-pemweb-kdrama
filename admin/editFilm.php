@@ -60,10 +60,8 @@ if (isset($_GET['id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style/global.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Karma:wght@300;400;500&family=Kaushan+Script&family=MonteCarlo&family=Playball&display=swap"
-        rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Karma:wght@300;400;500&family=Kaushan+Script&family=MonteCarlo&family=Playball&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <title>Document</title>
     <style>
         body {
@@ -83,7 +81,7 @@ if (isset($_GET['id'])) {
             </a>
         </nav>
         <nav class="navRight">
-        <a href="../logout.php">Logout</a>
+        <a href="../logout.php" style="font-family: 'Roboto', sans-serif;">Logout</a>
     </nav>
     </header>
     <h1 class="crudTitle" style="font-family: 'Kaushan Script', cursive;">Tambah Film</h1>
@@ -95,7 +93,7 @@ if (isset($_GET['id'])) {
             <div class="imgContainer">
                 <div>
                     <label for="">Banner Film</label>
-                    <label for="banner" class="file"
+                    <label for="banner" class="file" id="bannerImg"
                         onclick="chooseFile('banner', 'bannerPreview', 'bannerFileContainer')">
                         <i class="fas fa-image"></i>
                         <p>Add Banner Film</p>
@@ -106,7 +104,7 @@ if (isset($_GET['id'])) {
                 </div>
                 <div>
                     <label for="">Poster Film</label>
-                    <label for="poster" class="file"
+                    <label for="poster" class="file" id="posterImg"
                         onclick="chooseFile('poster', 'posterPreview', 'posterFileContainer')">
                         <i class="fas fa-image"></i>
                         <p>Add Poster Film</p>
