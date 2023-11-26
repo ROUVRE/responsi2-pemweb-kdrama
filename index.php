@@ -5,6 +5,13 @@ include("inc/footer.php");
 include("koneksi.php");
 include("session.php");
 check_session();
+
+$query_film = "SELECT * FROM film";
+$result_film = mysqli_query($conn, $query_film);
+
+if (!$result_film) {
+    die("Query error: " . mysqli_error($conn));
+}
 ?>
 
 <!DOCTYPE html>
@@ -38,12 +45,14 @@ check_session();
         <div class="movieBox">
             <h1>Nama Genre</h1>
             <div class="genreBox">
-                <div>
-                    <img src="assets/images/hwangYeji.jpeg" alt="">
-                    <h2 style="font-family: 'Playball', cursive;">Title</h2>
-                    <a class="button" href="movie.php">Learn More</a>
-                    <a class="button" href="">Add to List</a>
-                </div>
+                <?php while ($movie = mysqli_fetch_assoc($result_film)): ?>
+                    <div>
+                        <img src="<?php echo "assets/images/" . $movie['poster']; ?>" alt="<?php echo $movie['judul']; ?>">
+                        <h2 style="font-family: 'Playball', cursive;"><?php echo $movie['judul']; ?></h2>
+                        <a class="button" href="movie.php?film_id=<?php echo $movie['film_id']; ?>">Learn More</a>
+                        <a class="button" href="">Add to List</a>
+                    </div>
+                <?php endwhile; ?>
                 <!-- nambah movie disini brow -->
             </div>
             <i class="fa-solid fa-chevron-right" onclick="scrollGenreBox(1)"></i>
