@@ -74,7 +74,7 @@ check_session();
         </div>
         </div>
         <div class="movieRight">
-            <img src="assets/images/ado.jpeg" alt="">
+            <img src="assets/images/poster.jpeg" alt="">
         </div>
     </div>
 

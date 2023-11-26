@@ -273,7 +273,7 @@ header .navRight a {
   justify-content: center;
   width: 250px;
   /* margin harus di adjust */
-  margin-right: 20px;
+  margin-right: 50px;
 }
 
 .genreBox div img {
@@ -351,7 +351,7 @@ header .navRight a {
 }
 
 .movie .movieRight img {
-  width: 50%;
+  width: 80%;
 }
 
 .tittleBox p,

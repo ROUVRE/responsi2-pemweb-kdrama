@@ -42,6 +42,8 @@ if (isset($_POST['submit'])) {
             justify-content: center;
             height: 100vh;
             margin: 0;
+            background-image: url(assets/images/logReg.jpeg);
+            background-size: cover;
         }
 
         * {

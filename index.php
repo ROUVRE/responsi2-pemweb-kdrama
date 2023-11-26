@@ -26,7 +26,7 @@ check_session();
 
 <body>
     <div class="banner">
-        <img src="assets/images/shinRyujin.jpeg" alt="">
+        <img src="assets/images/index.jpeg" alt="">
         <h2 style="font-family: MonteCarlo;">K - Drama</h2>
         <div>
             <p>Dive into the magic of K-drama: profound stories, mesmerizing acting, and captivating visuals, just one
