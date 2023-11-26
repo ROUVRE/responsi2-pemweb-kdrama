@@ -142,14 +142,14 @@ if (isset($_GET['id'])) {
             </div>
         </div>
     </form>
-    <div class="regInfo" id="editSucced">
+    <div class="regInfo" id="editSucced"style="<?php echo ($addStatus === 'success') ? 'display: flex;' : 'display: none;'; ?>">
         <h2>Edit Data Film Berhasil !!</h2>
-        <button>OK</button>
+        <button onclick="redirectToAdmin('editSucced')">OK</button>
     </div>
-    <div class="regInfo" id="editFail">
+    <div class="regInfo" id="editFail" style="<?php echo ($editStatus === 'fail') ? 'display: flex;' : 'display: none;'; ?>">
         <i class="fa-solid fa-triangle-exclamation"></i>
         <h2>Edit Data Film Gagal !!</h2>
-        <button>OK</button>
+        <button onclick="closeModal('editFail')">OK</button>
     </div>
 
     <footer>
@@ -174,6 +174,11 @@ if (isset($_GET['id'])) {
             imagePreview.src = '';
         }
     }
+
+    function redirectToAdmin(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            window.location.href = 'admin.php';
+        }
     </script>
 </body>
 

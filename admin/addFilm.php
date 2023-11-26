@@ -3,6 +3,8 @@ include("../koneksi.php");
 include("../session.php");
 check_session();
 
+$addStatus = null;
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $judul = $_POST['judul'];
     $banner = $_POST['banner'];
@@ -23,8 +25,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($result) {
         echo '<script>alert("Tambah Film Berhasil!");</script>';
         header("Location: admin.php");
+        $addStatus = 'success';
     } else {
         echo '<script>alert("Tambah Film Gagal!");</script>';
+        $addStatus = 'fail';
     }
 }
 ?>
@@ -118,14 +122,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
         </div>
     </form>
-    <div class="regInfo" id="addSucced">
+    <div class="regInfo" id="addSucced" style="<?php echo ($addStatus === 'success') ? 'display: flex;' : 'display: none;'; ?>">
         <h2>Tambah Data Berhasil !!</h2>
-        <button>OK</button>
+        <button onclick="redirectToAdmin('addSucced')">OK</button>
     </div>
-    <div class="regInfo" id="addFail">
+    <div class="regInfo" id="addFail" style="<?php echo ($addStatus === 'fail') ? 'display: flex;' : 'display: none;'; ?>">
         <i class="fa-solid fa-triangle-exclamation"></i>
         <h2>Tambah Data Gagal !!</h2>
-        <button>OK</button>
+        <button onclick="closeModal('addFail')">OK</button>
     </div>
 
     <footer>
@@ -149,6 +153,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             } else {
                 imagePreview.src = '';
             }
+        }
+
+        function redirectToAdmin(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            window.location.href = 'admin.php';
         }
     </script>
 </body>
