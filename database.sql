@@ -13,15 +13,15 @@ CREATE TABLE user (
 CREATE TABLE film (
     film_id INT PRIMARY KEY AUTO_INCREMENT,
     judul VARCHAR(255) NOT NULL,
-    tahun_rilis YEAR,
-    rating_usia VARCHAR(10),
-    jumlah_season INT,
+    banner VARCHAR(255) NOT NULL, --Masukin direktori file jpg
+    poster VARCHAR(255) NOT NULL, --Masukin direktori file jpg
+    director VARCHAR(225),
+    cast VARCHAR(1000),
+    release_date DATE,
+    usia VARCHAR(10),
     genre VARCHAR(255),
-    sinopsis TEXT,
-    aktor VARCHAR(255),
-    director VARCHAR(255),
     link VARCHAR(255),
-    gambar VARCHAR(255) -- Masukkin directory file foto nya
+    sinopsis TEXT
 );
 
 CREATE TABLE comment (
