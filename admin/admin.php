@@ -1,3 +1,12 @@
+<?php
+include("../koneksi.php");
+include("../session.php");
+check_session();
+
+$query = "SELECT * FROM film";
+$result = mysqli_query($conn, $query);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -46,7 +55,7 @@
                         <th>Banner Film</th>
                         <th>Poster Film</th>
                         <th>Director</th>
-                        <th>Cast Utana</th>
+                        <th>Cast Utama</th>
                         <th>Date Release</th>
                         <th>Batas Usia</th>
                         <th>Genre</th>
@@ -54,24 +63,62 @@
                         <th>Sinopsis Film</th>
                         <th>Aksi</th>
                     </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>2</td>
-                        <td>3</td>
-                        <td>4</td>
-                        <td>5</td>
-                        <td>6</td>
-                        <td>7</td>
-                        <td>8</td>
-                        <td>9</td>
-                        <td>10</td>
-                        <td>11</td>
-                        <td>
-                            <a href="#"><i class="fa-solid fa-pen-to-square"></i></a>
-                            |
-                            <a href="#"><i class="fa-solid fa-trash"></i></a>
-                        </td>
-                    </tr>
+                    <?php
+                    $no = 1;
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        echo "<tr>";
+                        echo "<td>{$no}</td>";
+                        echo "<td>{$row['judul']}</td>";
+                        echo "<td><img src='../assets/images/{$row['banner']}' alt='Banner' width='190' height='100'></td>";
+                        echo "<td><img src='../assets/images/{$row['poster']}' alt='Poster' width='100' height='150'></td>";
+                        echo "<td>{$row['director']}</td>";
+                        echo "<td>{$row['cast']}</td>";
+                        echo "<td>{$row['release_date']}</td>";
+                        echo "<td>{$row['usia']}</td>";
+                        echo "<td>{$row['genre']}</td>";
+                        echo "<td><a href='{$row['link']}' target='_blank'>{$row['link']}</a></td>";
+                        echo "<td>{$row['sinopsis']}</td>";
+                        echo "<td>
+                                <a href='editFilm.php?id={$row['film_id']}'><i class='fa-solid fa-pen-to-square'></i></a>
+                                |
+                                <a href='#' onclick='showModalConfirm(\"{$row['film_id']}\")'><i class='fa-solid fa-trash'></i></a>
+                            </td>";
+                        echo "</tr>";
+                        $no++;
+                    }
+
+                    if (isset($_GET['delete_id'])) {
+                        $deleteId = $_GET['delete_id'];
+                        $deleteQuery = "DELETE FROM film WHERE film_id = $deleteId";
+                        $deleteResult = mysqli_query($conn, $deleteQuery);
+
+                        if ($deleteResult) {
+                            echo "<script>document.getElementById('deleteSucced').style.display = 'block';</script>";
+                        } else {
+                            echo "<script>document.getElementById('deleteFail').style.display = 'block';</script>";
+                        }
+
+                        echo "<script>window.location.href = 'admin.php';</script>";
+                        exit();
+                    }
+                    ?>
+
+                    <script>
+                        function showModalConfirm(filmId) {
+                            var modal = document.getElementById('modalConfirm');
+                            modal.style.display = 'block';
+
+                            var modalOk = document.getElementById('modalOk');
+                            modalOk.onclick = function () {
+                                window.location.href = 'admin.php?delete_id=' + filmId;
+                            };
+
+                            var modalCancel = document.getElementById('modalCancel');
+                            modalCancel.onclick = function () {
+                                modal.style.display = 'none';
+                            };
+                        }
+                    </script>
                 </table>
             </div>
         </div>
