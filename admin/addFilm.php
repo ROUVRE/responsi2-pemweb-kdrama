@@ -1,3 +1,34 @@
+<?php
+include("../koneksi.php");
+include("../session.php");
+check_session();
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $judul = $_POST['judul'];
+    $banner = $_POST['banner'];
+    $poster = $_POST['poster'];
+    $director = $_POST['director'];
+    $cast = $_POST['cast'];
+    $release_date = $_POST['date'];
+    $usia = $_POST['usia'];
+    $genre = $_POST['genre'];
+    $link = $_POST['link'];
+    $sinopsis = $_POST['sinopsis'];
+
+    $query = "INSERT INTO film (judul, banner, poster, director, cast, release_date, usia, genre, link, sinopsis) 
+              VALUES ('$judul', '$banner', '$poster', '$director', '$cast', '$release_date', '$usia', '$genre', '$link', '$sinopsis')";
+
+    $result = mysqli_query($conn, $query);
+
+    if ($result) {
+        echo '<script>alert("Tambah Film Berhasil!");</script>';
+        header("Location: admin.php");
+    } else {
+        echo '<script>alert("Tambah Film Gagal!");</script>';
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,10 +61,10 @@
         </nav>
     </header>
     <h1 class="crudTitle" style="font-family: 'Kaushan Script', cursive;">Tambah Film</h1>
-    <form action="">
+    <form action="addFilm.php" method="POST">
         <div class="crudContainer">
             <label for="judul">Judul Film</label>
-            <input type="text" name="judul" id="">
+            <input type="text" name="judul" id="judul">
             <div class="imgContainer">
                 <div>
                     <label for="">Banner Film</label>
@@ -59,25 +90,25 @@
                 </div>
             </div>
             <label for="director">Director</label>
-            <input type="text" name="director" id="">
+            <input type="text" name="director" id="director">
             <label for="cast">Cast Utama</label>
-            <input type="text" name="cast" id="">
+            <input type="text" name="cast" id="cast">
             <div class="dateContainer">
                 <div>
                     <label for="date">Date Release</label>
-                    <input type="date" name="date" id="">
+                    <input type="date" name="date" id="date">
                 </div>
                 <div>
                     <label for="usia">Batas Usia</label>
-                    <input type="text" name="usia" id="">
+                    <input type="text" name="usia" id="usia">
                 </div>
             </div>
             <label for="genre">Genre</label>
-            <input type="text" name="genre" id="">
+            <input type="text" name="genre" id="genre">
             <label for="link">Link Film</label>
-            <input type="text" name="link" id="">
+            <input type="text" name="link" id="link">
             <label for="sinopsis">Sinopsis</label>
-            <textarea name="sinopsis" id="" cols="30" rows="10"></textarea>
+            <textarea name="sinopsis" id="sinopsis" cols="30" rows="10"></textarea>
             <div class="buttonContainer">
                 <input type="submit" name="cancel" id="cancel" value="cancel">
                 <input type="submit" name="submit" id="submit">
