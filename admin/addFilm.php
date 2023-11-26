@@ -110,7 +110,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <label for="sinopsis">Sinopsis</label>
             <textarea name="sinopsis" id="sinopsis" cols="30" rows="10"></textarea>
             <div class="buttonContainer">
-                <input type="submit" name="cancel" id="cancel" value="cancel">
+            <a href="admin.php">
+                <input type="button" name="cancel" id="cancel" value="cancel">
+            </a>
                 <input type="submit" name="submit" id="submit">
             </div>
         </div>
