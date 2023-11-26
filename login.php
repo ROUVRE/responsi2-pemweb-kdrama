@@ -13,8 +13,15 @@ if (isset($_POST['submit'])) {
     $query = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($query) > 0) {
+        $user_data = mysqli_fetch_assoc($query);
+        $role = $user_data['role'];
+
         set_login_session($user_id, $nama, $username, $role);
-        header("Location: index.php");
+        if ($role === 'admin') {
+            header("Location: admin/admin.php");
+        } else {
+            header("Location: index.php");
+        }
         exit();
     } else {
         // modal
