@@ -63,6 +63,15 @@ if (isset($_GET['action']) && isset($_GET['film_id']) && $_GET['action'] == 'del
             <i class="fa-solid fa-chevron-right" onclick="scrollGenreBox(1)"></i>
         </div>
     </div>
+
+    <script>
+        function scrollGenreBox(direction) {
+            const genreBox = document.querySelector('.genreBox');
+            const scrollAmount = 300;
+            genreBox.scrollLeft += direction * scrollAmount;
+        }
+    </script>
+    
 </body>
 
 </html>
