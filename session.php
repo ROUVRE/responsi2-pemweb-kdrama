@@ -24,7 +24,6 @@ function refresh_session() {
 }
 
 function set_login_session($user_id, $nama, $username, $role) {
-    refresh_session();
     $_SESSION['user_id'] = $user_id;
     $_SESSION['nama'] = $nama;
     $_SESSION['username'] = $username;
