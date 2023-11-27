@@ -46,11 +46,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $updateResult = mysqli_query($conn, $updateQuery);
 
     if ($updateResult) {
-        echo "<script>document.getElementById('editSucced').style.display = 'flex';</script>";
         $editStatus = 'success';
-        header("Location: admin.php");
     } else {
-        echo "<script>document.getElementById('editFail').style.display = 'flex';</script>";
         $editStatus = 'fail';
     }
 }

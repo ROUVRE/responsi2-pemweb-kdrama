@@ -82,6 +82,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=MonteCarlo&family=Playball&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Karma:wght@300;400;500&family=Kaushan+Script&family=MonteCarlo&family=Playball&family=Roboto:wght@300;400;500&family=Ruluko&display=swap" rel="stylesheet">
     <style>
         .comment .star input[type="radio"] {
             display: none;
@@ -99,6 +102,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
 
         .comment .star label i.fa-solid {
             color: #ffd700 !important;
+        }
+
+        p {
+            font-family: 'Ruluko', sans-serif;
         }
     </style>
     <title>Movie</title>
@@ -125,7 +132,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
         </div>
         <div class="linkBox">
             <p>Link Film</p>
-            <a href="<?php echo $film['link']; ?>">Link</a>
+            <a href="<?php echo $film['link']; ?>"><?= $film['link']; ?></a>
         </div>
         <div class="commentBox">
         <?php while ($comment = mysqli_fetch_assoc($resultComment)): ?>

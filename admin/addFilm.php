@@ -23,11 +23,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $result = mysqli_query($conn, $query);
 
     if ($result) {
-        echo '<script>alert("Tambah Film Berhasil!");</script>';
-        header("Location: admin.php");
         $addStatus = 'success';
     } else {
-        echo '<script>alert("Tambah Film Gagal!");</script>';
         $addStatus = 'fail';
     }
 }

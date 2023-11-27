@@ -283,7 +283,7 @@ header .navRight a {
 
 .genreBox div h2 {
   margin: 10px 0;
-  color: white;
+  color: black;
   text-align: center;
 }
 
@@ -529,6 +529,11 @@ header .navRight a {
   font-family: Inter;
   font-size: 14px;
   height: 50px;
+  color: white;
+}
+
+#aksi {
+  width: 50px;
 }
 
 .dataContainer td {
@@ -680,7 +685,9 @@ header .navRight a {
 #addFail,
 #deleteSucced,
 #deleteFail,
-#modalConfirm {
+#modalConfirm,
+#editSucced,
+#editFail {
   position: fixed;
   top: 50%;
   left: 50%;

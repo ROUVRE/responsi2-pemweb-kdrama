@@ -62,7 +62,7 @@ $result = mysqli_query($conn, $query);
                         <th>Genre</th>
                         <th>Link URL Film</th>
                         <th>Sinopsis Film</th>
-                        <th>Aksi</th>
+                        <th id="aksi">Aksi</th>
                     </tr>
                     <?php
                     $no = 1;
