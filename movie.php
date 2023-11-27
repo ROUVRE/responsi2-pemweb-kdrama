@@ -132,7 +132,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
         </div>
         <div class="linkBox">
             <p>Link Film</p>
-            <a href="<?php echo $film['link']; ?>"><?= $film['link']; ?></a>
+            <a href="<?php echo $film['link']; ?>" target='_blank'><?= $film['link']; ?></a>
         </div>
         <div class="commentBox">
         <?php while ($comment = mysqli_fetch_assoc($resultComment)): ?>
