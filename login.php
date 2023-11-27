@@ -14,9 +14,14 @@ if (isset($_POST['submit'])) {
 
     if (mysqli_num_rows($query) > 0) {
         $user_data = mysqli_fetch_assoc($query);
+        
+        $user_id = $user_data['user_id'];
+        $nama = $nama['nama'];
+        $username = $user_data['username'];
         $role = $user_data['role'];
 
         set_login_session($user_id, $nama, $username, $role);
+        
         if ($role === 'admin') {
             header("Location: admin/admin.php");
         } else {
