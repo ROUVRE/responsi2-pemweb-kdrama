@@ -3,6 +3,8 @@ include("../koneksi.php");
 include("../session.php");
 check_session();
 
+$editStatus = null;
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $filmId = $_POST['film_id'];
     $judul = $_POST['judul'];
@@ -28,10 +30,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $updateResult = mysqli_query($conn, $updateQuery);
 
     if ($updateResult) {
-        echo "<script>document.getElementById('editSucced').style.display = 'block';</script>";
+        echo "<script>document.getElementById('editSucced').style.display = 'flex';</script>";
+        $editStatus = 'success';
         header("Location: admin.php");
     } else {
-        echo "<script>document.getElementById('editFail').style.display = 'block';</script>";
+        echo "<script>document.getElementById('editFail').style.display = 'flex';</script>";
+        $editStatus = 'fail';
     }
 }
 
@@ -142,7 +146,7 @@ if (isset($_GET['id'])) {
             </div>
         </div>
     </form>
-    <div class="regInfo" id="editSucced"style="<?php echo ($addStatus === 'success') ? 'display: flex;' : 'display: none;'; ?>">
+    <div class="regInfo" id="editSucced"style="<?php echo ($editStatus === 'success') ? 'display: flex;' : 'display: none;'; ?>">
         <h2>Edit Data Film Berhasil !!</h2>
         <button onclick="redirectToAdmin('editSucced')">OK</button>
     </div>
@@ -174,6 +178,10 @@ if (isset($_GET['id'])) {
             imagePreview.src = '';
         }
     }
+    
+    function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
 
     function redirectToAdmin(modalId) {
             document.getElementById(modalId).style.display = 'none';

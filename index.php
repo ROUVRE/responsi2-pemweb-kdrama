@@ -41,9 +41,8 @@ if (!$result_film) {
         </div>
     </div>
     <div class="movieBg">
-        <h1 class="movieBoxTitle" style="font-family: Kaushan Script;">Genre</h1>
+        <h1 class="movieBoxTitle" style="font-family: Kaushan Script;">Film</h1>
         <div class="movieBox">
-            <h1>Nama Genre</h1>
             <div class="genreBox">
                 <?php while ($movie = mysqli_fetch_assoc($result_film)): ?>
                     <div>

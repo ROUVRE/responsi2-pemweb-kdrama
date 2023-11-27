@@ -155,6 +155,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
         }
 
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
         function redirectToAdmin(modalId) {
             document.getElementById(modalId).style.display = 'none';
             window.location.href = 'admin.php';

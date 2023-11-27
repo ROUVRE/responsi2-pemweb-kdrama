@@ -575,7 +575,7 @@ header .navRight a {
   height: 50px;
   border-radius: 15px;
   padding: 0 10px;
-  background: none;
+  background: white;
   font-size: 20px;
   margin-left: 30px;
   border: 1px solid black;
@@ -620,6 +620,7 @@ header .navRight a {
   align-items: center;
   margin-left: 30px;
   position: relative;
+  background-color: white;
 }
 
 .imgContainer #bannerImg {
@@ -645,6 +646,7 @@ header .navRight a {
 .imgContainer .file p {
   font-size: 16px;
   margin: 10px 0;
+  color: black;
 }
 
 .imgContainer input{

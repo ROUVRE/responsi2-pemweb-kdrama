@@ -66,25 +66,25 @@ if (isset($_POST['submit'])) {
                     <label for="name">Nama :</label>
                     <div class="inputBox">
                         <i class="fa-solid fa-user"></i>
-                        <input type="text" name="Name" maxlength="40" oninput="validateInput(this)">
+                        <input type="text" name="Name" maxlength="40" oninput="validateInput(this)" required>
                     </div>
                     <label for="username">Username :</label>
                     <div class="inputBox">
                         <i class="fa-solid fa-user"></i>
-                        <input type="text" name="username" maxlength="25" oninput="validateInput(this)">
+                        <input type="text" name="username" maxlength="25" oninput="validateInput(this)" required>
                     </div>
                     <label for="password">Password :</label>
                     <div class="inputBox">
                         <i class="fa-solid fa-key"></i>
                         <input type="password" name="password" id="password" maxlength="20"
-                            oninput="validateInput(this)">
+                            oninput="validateInput(this)" required>
                         <i class="fa-solid fa-eye-slash"></i>
                     </div>
                     <label for="confPassword">Confirm Password :</label>
                     <div class="inputBox">
                         <i class="fa-solid fa-key"></i>
                         <input type="password" name="confPassword" id="confPassword" maxlength="20"
-                            oninput="validateInput(this)">
+                            oninput="validateInput(this)" required>
                         <i class="fa-solid fa-eye-slash"></i>
                     </div>
                 </div>
@@ -107,8 +107,12 @@ if (isset($_POST['submit'])) {
 
     <script>
         function validateInput(input) {
-            input.value = input.value.replace(/'/g, '');
+        if (input.name === 'Name') {
+            input.value = input.value.replace(/[^a-zA-Z]/g, '');
+        } else {
+            input.value = input.value.replace(/['" -]/g, '');
         }
+    }
 
         function validateForm() {
             var password = document.getElementById('password').value;

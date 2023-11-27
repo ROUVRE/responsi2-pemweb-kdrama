@@ -94,9 +94,9 @@ $result = mysqli_query($conn, $query);
                         $deleteResult = mysqli_query($conn, $deleteQuery);
 
                         if ($deleteResult) {
-                            echo "<script>document.getElementById('deleteSucced').style.display = 'block';</script>";
+                            echo "<script>document.getElementById('deleteSucced').style.display = 'flex';</script>";
                         } else {
-                            echo "<script>document.getElementById('deleteFail').style.display = 'block';</script>";
+                            echo "<script>document.getElementById('deleteFail').style.display = 'flex';</script>";
                         }
 
                         echo "<script>window.location.href = 'admin.php';</script>";
@@ -107,7 +107,7 @@ $result = mysqli_query($conn, $query);
                     <script>
                         function showModalConfirm(filmId) {
                             var modal = document.getElementById('modalConfirm');
-                            modal.style.display = 'block';
+                            modal.style.display = 'flex';
 
                             var modalOk = document.getElementById('modalOk');
                             modalOk.onclick = function () {
