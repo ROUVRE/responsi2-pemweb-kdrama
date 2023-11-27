@@ -4,7 +4,13 @@ session_start();
 function set_session_timeout($menit = 5) {
     $timeout = $menit * 60;
     if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity'] > $timeout)) {
-        header("Location: logout.php");
+        $main_dir = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+
+        if (strpos($main_dir, '/admin') !== false) {
+            header("Location: $main_dir/../logout.php");
+        } else {
+            header("Location: $main_dir/logout.php");
+        }
         exit();
     }
     $_SESSION['last_activity'] = time();
