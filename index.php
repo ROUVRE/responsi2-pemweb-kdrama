@@ -54,6 +54,7 @@ if (!$result_film) {
                 <?php endwhile; ?>
             </div>
             <i class="fa-solid fa-chevron-right" onclick="scrollGenreBox(1)"></i>
+            <i class="fa-solid fa-chevron-left" onclick="scrollLeftGenreBox()"></i>
         </div>
     </div>
 
@@ -63,6 +64,10 @@ if (!$result_film) {
             const scrollAmount = 300;
             genreBox.scrollLeft += direction * scrollAmount;
         }
+
+        function scrollLeftGenreBox() {
+        scrollGenreBox(-1);
+    }
     </script>
 
 </body>

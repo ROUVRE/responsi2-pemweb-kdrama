@@ -61,6 +61,7 @@ if (isset($_GET['action']) && isset($_GET['film_id']) && $_GET['action'] == 'del
                 <?php endwhile; ?>
             </div>
             <i class="fa-solid fa-chevron-right" onclick="scrollGenreBox(1)"></i>
+            <i class="fa-solid fa-chevron-left" onclick="scrollLeftGenreBox()"></i>
         </div>
     </div>
 
@@ -70,6 +71,10 @@ if (isset($_GET['action']) && isset($_GET['film_id']) && $_GET['action'] == 'del
             const scrollAmount = 300;
             genreBox.scrollLeft += direction * scrollAmount;
         }
+
+        function scrollLeftGenreBox() {
+        scrollGenreBox(-1);
+    }
     </script>
     
 </body>

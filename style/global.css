@@ -239,7 +239,7 @@ header .navRight a {
 }
 
 .movieBox {
-  padding: 15px 30px;
+  padding: 15px 70px;
   position: relative;
   overflow: hidden;
 }
@@ -249,10 +249,20 @@ header .navRight a {
   color: rgba(187, 136, 157, 1);
 }
 
-.movieBox i {
+.movieBox .fa-chevron-right {
   color: rgba(146, 65, 98, 1);
   position: absolute;
   right: 30px;
+  top: 50%;
+  font-size: 50px;
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+
+.movieBox .fa-chevron-left {
+  color: rgba(146, 65, 98, 1);
+  position: absolute;
+  left: 30px;
   top: 50%;
   font-size: 50px;
   cursor: pointer;
@@ -273,7 +283,7 @@ header .navRight a {
   justify-content: center;
   width: 250px;
   /* margin harus di adjust */
-  margin-right: 50px;
+  margin-right: 90px;
 }
 
 .genreBox div img {
