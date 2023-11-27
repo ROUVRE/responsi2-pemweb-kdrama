@@ -1,12 +1,33 @@
 <?php
 session_start();
+
+function set_session_timeout($menit = 5) {
+    $timeout = $menit * 60;
+    if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity'] > $timeout)) {
+        header("Location: logout.php");
+        exit();
+    }
+    $_SESSION['last_activity'] = time();
+}
+
+function refresh_session() {
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
+    set_session_timeout();
+}
+
 function set_login_session($user_id, $nama, $username, $role) {
+    refresh_session();
     $_SESSION['user_id'] = $user_id;
     $_SESSION['nama'] = $nama;
     $_SESSION['username'] = $username;
     $_SESSION['role'] = $role;
 }
+
 function check_session() {
+    refresh_session();
+
     if (!isset($_SESSION['username'])) {
         redirect_to_login();
     } else {
