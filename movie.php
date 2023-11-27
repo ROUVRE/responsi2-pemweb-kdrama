@@ -33,7 +33,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
     $comment_text = $_POST['komentar'];
     $rating = isset($_POST['rating']) ? $_POST['rating'] : null;
 
-    if (!empty($comment_text) && !empty($rating) && $rating >= 1 && $rating <= 5) {
+    $existingCommentQuery = "SELECT * FROM comment WHERE user_id = $user_id AND film_id = $film_id";
+    $existingCommentResult = mysqli_query($conn, $existingCommentQuery);
+
+    if (!$existingCommentResult) {
+        die("Existing comment query error: " . mysqli_error($conn));
+    }
+
+    if (mysqli_num_rows($existingCommentResult) > 0) {
+        // Kalo user udah nambah komentar sebelumnya, komen itu bakal diupdate (bukan nambah komentar baru)
+        $updateCommentQuery = "UPDATE comment SET komentar = ?, rating = ? WHERE user_id = ? AND film_id = ?";
+        $updateStmt = mysqli_prepare($conn, $updateCommentQuery);
+
+        mysqli_stmt_bind_param($updateStmt, 'siii', $comment_text, $rating, $user_id, $film_id);
+
+        $updateCommentResult = mysqli_stmt_execute($updateStmt);
+
+        if (!$updateCommentResult) {
+            die("Error updating comment: " . mysqli_error($conn));
+        }
+
+        mysqli_stmt_close($updateStmt);
+    } else {
+        // Tambah komentar baru kalo belum pernah kirim komentar
         $insertCommentQuery = "INSERT INTO comment (user_id, film_id, komentar, rating) VALUES (?, ?, ?, ?)";
         $stmt = mysqli_prepare($conn, $insertCommentQuery);
 
@@ -46,11 +68,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
         }
 
         mysqli_stmt_close($stmt);
-
-        header("Location: movie.php?film_id=$film_id");
-        exit();
-
     }
+
+    header("Location: movie.php?film_id=$film_id");
+    exit();
 }
 ?>
 
@@ -121,7 +142,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
                         }
                         ?>
                     </div>
-                    <p><?php echo $comment['komentar']; ?></p>
+                    <p><?php echo $comment['komentar']; ?></p><br>
                 </div>
             </div>
         <?php endwhile; ?>
