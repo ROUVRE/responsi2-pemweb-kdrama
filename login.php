@@ -9,27 +9,30 @@ if (isset($_POST['submit'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $sql = "SELECT * FROM user WHERE username='$username' AND password='$password'";
+    $sql = "SELECT * FROM user WHERE username='$username' AND BINARY password='$password'";
     $query = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($query) > 0) {
         $user_data = mysqli_fetch_assoc($query);
-        
-        $user_id = $user_data['user_id'];
-        $nama = $nama['nama'];
-        $username = $user_data['username'];
-        $role = $user_data['role'];
-
-        set_login_session($user_id, $nama, $username, $role);
-        
-        if ($role === 'admin') {
-            header("Location: admin/admin.php");
+    
+        if ($password === $user_data['password']) {
+            $user_id = $user_data['user_id'];
+            $nama = $user_data['nama'];
+            $username = $user_data['username'];
+            $role = $user_data['role'];
+    
+            set_login_session($user_id, $nama, $username, $role);
+    
+            if ($role === 'admin') {
+                header("Location: admin/admin.php");
+            } else {
+                header("Location: index.php");
+            }
+            exit();
         } else {
-            header("Location: index.php");
+            $loginStatus = 'fail';
         }
-        exit();
     } else {
-        // modal
         $loginStatus = 'fail';
     }
 }
