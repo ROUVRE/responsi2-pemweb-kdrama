@@ -16,6 +16,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $link = $_POST['link'];
     $sinopsis = $_POST['sinopsis'];
 
+    if ($_FILES['banner']['size'] > 0) {
+        $banner = basename($_FILES['banner']['name']);
+        move_uploaded_file($_FILES['banner']['tmp_name'], $banner);
+    } else {
+        $banner = $_POST['current_banner'];
+    }
+
+    if ($_FILES['poster']['size'] > 0) {
+        $poster = basename($_FILES['poster']['name']);
+        move_uploaded_file($_FILES['poster']['tmp_name'], $poster);
+    } else {
+        $poster = $_POST['current_poster'];
+    }
+
     $updateQuery = "UPDATE film SET 
                     judul = '$judul',
                     director = '$director',
@@ -24,7 +38,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     usia = '$usia',
                     genre = '$genre',
                     link = '$link',
-                    sinopsis = '$sinopsis'
+                    sinopsis = '$sinopsis',
+                    banner = '$banner',
+                    poster = '$poster'
                     WHERE film_id = $filmId";
 
     $updateResult = mysqli_query($conn, $updateQuery);
@@ -89,7 +105,7 @@ if (isset($_GET['id'])) {
     </nav>
     </header>
     <h1 class="crudTitle" style="font-family: 'Kaushan Script', cursive;">Tambah Film</h1>
-    <form method="POST" action="">
+    <form method="POST" action="" enctype="multipart/form-data">
         <input type="hidden" name="film_id" value="<?php echo $filmData['film_id']; ?>">
         <div class="crudContainer">
             <label for="judul">Judul Film</label>
@@ -101,10 +117,11 @@ if (isset($_GET['id'])) {
                         onclick="chooseFile('banner', 'bannerPreview', 'bannerFileContainer')">
                         <i class="fas fa-image"></i>
                         <p>Add Banner Film</p>
-                        <img id="bannerPreview" src="" alt="">
+                        <img id="bannerPreview" src="<?php echo $filmData['banner']; ?>" alt="">
                     </label>
                     <input type="file" name="banner" id="banner" style="display: none;"
                         onchange="previewFile('banner', 'bannerPreview', 'bannerFileContainer')" required>
+                    <input type="hidden" name="current_banner" value="<?php echo $filmData['banner']; ?>">
                 </div>
                 <div>
                     <label for="">Poster Film</label>
@@ -112,10 +129,11 @@ if (isset($_GET['id'])) {
                         onclick="chooseFile('poster', 'posterPreview', 'posterFileContainer')">
                         <i class="fas fa-image"></i>
                         <p>Add Poster Film</p>
-                        <img id="posterPreview" src="" alt="">
+                        <img id="posterPreview" src="<?php echo $filmData['poster']; ?>" alt="">
                     </label>
                     <input type="file" name="poster" id="poster" style="display: none;"
                         onchange="previewFile('poster', 'posterPreview', 'posterFileContainer')" required>
+                    <input type="hidden" name="current_poster" value="<?php echo $filmData['poster']; ?>">
                 </div>
             </div>
             <label for="director">Director</label>
