@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-function set_session_timeout($menit = 5) {
+function set_session_timeout($menit = 10) {
     $timeout = $menit * 60;
     if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity'] > $timeout)) {
         $main_dir = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
