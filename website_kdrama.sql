@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 27, 2023 at 01:26 PM
+-- Generation Time: Nov 27, 2023 at 03:40 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -41,7 +41,7 @@ CREATE TABLE `comment` (
 
 INSERT INTO `comment` (`comment_id`, `user_id`, `film_id`, `komentar`, `rating`) VALUES
 (13, 2, 2, 'Bagus tapi kurang actionnya', 4),
-(14, 2, 9, 'not bad', 4),
+(14, 2, 9, 'i mean it\'s alright', 3),
 (15, 3, 9, 'omaga', 5);
 
 -- --------------------------------------------------------
@@ -70,7 +70,8 @@ CREATE TABLE `film` (
 
 INSERT INTO `film` (`film_id`, `judul`, `banner`, `poster`, `director`, `cast`, `release_date`, `usia`, `genre`, `link`, `sinopsis`) VALUES
 (2, 'Reply 1988', 'banner.jpg', 'poster.jpg', 'Shin Won-ho', 'Lee Hye-ri, Ryu Jun-yeol, Go Kyung-pyo, Park Bo-gum, Lee Dong-hwi', '2015-11-06', '13+', 'Komedi, romance, family drama', 'https://www.netflix.com/id/title/80188351', 'Drama ini mengikuti kehidupan 5 keluarga yang tinggal di jalan yang sama di sebuah lingkungan. Sebuah nostalgia membuat mereka mengingat kembali tahun 1988. Ketika sekelompok teman tersebut terlibat dan keluar dari kenakalan, pengalaman apa yang akan mereka bawa dalam kehidupan mereka di masa depan?'),
-(9, 'My Mister', 'my-mister-banner.jpg', 'My-Mister.jpg', 'Kim Won-seok', 'Lee Sun-kyun, Lee Ji-eun', '2018-03-21', '15+', 'Psychological', 'https://www.netflix.com/id/title/81267691', 'Di dunia yang tak bersahabat, rasa kekeluargaan tumbuh dalam diri seorang wanita muda dan pria paruh baya yang menemukan kehangatan dan kenyamanan antara satu sama lain.');
+(9, 'My Mister', 'my-mister-banner.jpg', 'My-Mister.jpg', 'Kim Won-seok', 'Lee Sun-kyun, Lee Ji-eun', '2018-03-21', '15+', 'Psychological', 'https://www.netflix.com/id/title/81267691', 'Di dunia yang tak bersahabat, rasa kekeluargaan tumbuh dalam diri seorang wanita muda dan pria paruh baya yang menemukan kehangatan dan kenyamanan antara satu sama lain.'),
+(11, 'Alchemy Of Souls', 'alchemy-of-souls-banner.jpeg', 'Alchemy_of_Souls_poster.jpeg', 'Park Joon-hwa', 'Lee Jae-wook, Jung So-min, Go Youn-jung, Hwang Min-hyun', '2022-06-18', '15+', 'Romance, fantasy, action', 'https://www.netflix.com/id/title/81517188', 'Seorang penyihir wanita sakti dalam tubuh wanita buta bertemu seorang pria dari keluarga kelas atas, yang menginginkan bantuan si penyihir untuk mengubah nasibnya.');
 
 -- --------------------------------------------------------
 
@@ -89,7 +90,6 @@ CREATE TABLE `mylist` (
 --
 
 INSERT INTO `mylist` (`myList_id`, `user_id`, `film_id`) VALUES
-(4, 2, 9),
 (5, 3, 2),
 (6, 3, 9);
 
@@ -164,13 +164,13 @@ ALTER TABLE `comment`
 -- AUTO_INCREMENT for table `film`
 --
 ALTER TABLE `film`
-  MODIFY `film_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `film_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `mylist`
 --
 ALTER TABLE `mylist`
-  MODIFY `myList_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `myList_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `user`
