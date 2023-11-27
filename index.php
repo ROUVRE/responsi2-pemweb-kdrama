@@ -49,10 +49,9 @@ if (!$result_film) {
                         <img src="<?php echo "assets/images/" . $movie['poster']; ?>" alt="<?php echo $movie['judul']; ?>">
                         <h2 style="font-family: 'Playball', cursive;"><?php echo $movie['judul']; ?></h2>
                         <a class="button" href="movie.php?film_id=<?php echo $movie['film_id']; ?>">Learn More</a>
-                        <a class="button" href="">Add to List</a>
+                        <a class="button" href="mylist.php?action=add&film_id=<?php echo $movie['film_id']; ?>">Add to List</a>
                     </div>
                 <?php endwhile; ?>
-                <!-- nambah movie disini brow -->
             </div>
             <i class="fa-solid fa-chevron-right" onclick="scrollGenreBox(1)"></i>
         </div>

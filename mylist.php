@@ -5,6 +5,27 @@ include("inc/footer.php");
 include("koneksi.php");
 include("session.php");
 check_session();
+
+if (isset($_GET['action']) && isset($_GET['film_id']) && $_GET['action'] == 'add') {
+    $user_id = $_SESSION['user_id'];
+    $film_id = $_GET['film_id'];
+
+    $check_query = "SELECT * FROM myList WHERE user_id = $user_id AND film_id = $film_id";
+    $check_result = mysqli_query($conn, $check_query);
+
+    if (mysqli_num_rows($check_result) == 0) {
+        $insert_query = "INSERT INTO myList (user_id, film_id) VALUES ($user_id, $film_id)";
+        $insert_result = mysqli_query($conn, $insert_query);
+    }
+}
+
+if (isset($_GET['action']) && isset($_GET['film_id']) && $_GET['action'] == 'delete') {
+    $user_id = $_SESSION['user_id'];
+    $film_id = $_GET['film_id'];
+
+    $delete_query = "DELETE FROM myList WHERE user_id = $user_id AND film_id = $film_id";
+    $delete_result = mysqli_query($conn, $delete_query);
+}
 ?>
 
 <!DOCTYPE html>
@@ -24,13 +45,20 @@ check_session();
         <h1 class="movieBoxTitle" style="font-family: 'Kaushan Script', cursive;  margin-bottom: 50px;">My List</h1>
         <div class="movieBox" style="height: 507px;">
             <div class="genreBox">
-                <div>
-                    <img src="assets/images/hwangYeji.jpeg" alt="">
-                    <h2 style="font-family: 'Playball', cursive;">Title</h2>
-                    <a class="button" href="movie.php">Learn More</a>
-                    <a class="button" href="">Delete</a>
-                </div>
-                <!-- nambah list disini brow -->
+                <?php
+                $user_id = $_SESSION['user_id'];
+                $mylist_query = "SELECT film.* FROM myList JOIN film ON myList.film_id = film.film_id WHERE myList.user_id = $user_id";
+                $mylist_result = mysqli_query($conn, $mylist_query);
+                ?>
+
+                <?php while ($list_item = mysqli_fetch_assoc($mylist_result)): ?>
+                    <div>
+                        <img src="<?php echo "assets/images/" . $list_item['poster']; ?>" alt="<?php echo $list_item['judul']; ?>">
+                        <h2 style="font-family: 'Playball', cursive;"><?php echo $list_item['judul']; ?></h2>
+                        <a class="button" href="movie.php?film_id=<?php echo $list_item['film_id']; ?>">Learn More</a>
+                        <a class="button" href="mylist.php?action=delete&film_id=<?php echo $list_item['film_id']; ?>">Delete</a>
+                    </div>
+                <?php endwhile; ?>
             </div>
             <i class="fa-solid fa-chevron-right" onclick="scrollGenreBox(1)"></i>
         </div>
