@@ -83,7 +83,7 @@ if (isset($_POST['submit'])) {
                         <i class="fa-solid fa-key"></i>
                         <input type="password" name="password" id="password" maxlength="20"
                             oninput="validateInput(this)">
-                        <i class="fa-solid fa-eye-slash"></i>
+                        <i id="eye-icon" class="fa-solid fa-eye-slash" onclick="togglePasswordVisibility()"></i>
                     </div>
                 </div>
                 <input class="submit" type="submit" name="submit" value="Log in">
@@ -118,6 +118,21 @@ if (isset($_POST['submit'])) {
         function closeModal(modalId) {
             document.getElementById(modalId).style.display = 'none';
         }
+
+        function togglePasswordVisibility() {
+        var passwordInput = document.getElementById('password');
+        var eyeIcon = document.getElementById('eye-icon');
+
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            eyeIcon.classList.remove('fa-eye-slash');
+            eyeIcon.classList.add('fa-eye');
+        } else {
+            passwordInput.type = 'password';
+            eyeIcon.classList.remove('fa-eye');
+            eyeIcon.classList.add('fa-eye-slash');
+        }
+    }
     </script>
 </body>
 

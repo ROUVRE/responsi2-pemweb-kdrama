@@ -78,14 +78,14 @@ if (isset($_POST['submit'])) {
                         <i class="fa-solid fa-key"></i>
                         <input type="password" name="password" id="password" maxlength="20"
                             oninput="validateInput(this)" required>
-                        <i class="fa-solid fa-eye-slash"></i>
+                        <i id="eye-icon" class="fa-solid fa-eye-slash" onclick="togglePasswordVisibility()"></i>
                     </div>
                     <label for="confPassword">Confirm Password :</label>
                     <div class="inputBox">
                         <i class="fa-solid fa-key"></i>
                         <input type="password" name="confPassword" id="confPassword" maxlength="20"
                             oninput="validateInput(this)" required>
-                        <i class="fa-solid fa-eye-slash"></i>
+                        <i id="eye-icon2" class="fa-solid fa-eye-slash" onclick="togglePasswordVisibility()"></i>
                     </div>
                 </div>
                 <input class="submit" type="submit" name="submit" value="Daftar">
@@ -134,6 +134,29 @@ if (isset($_POST['submit'])) {
             document.getElementById(modalId).style.display = 'none';
             window.location.href = 'login.php';
         }
+
+        function togglePasswordVisibility() {
+        var passwordInput = document.getElementById('password');
+        var passwordInput2 = document.getElementById('confPassword');
+        var eyeIcon = document.getElementById('eye-icon');
+        var eyeIcon2 = document.getElementById('eye-icon2');
+
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            passwordInput2.type = 'text';
+            eyeIcon.classList.remove('fa-eye-slash');
+            eyeIcon.classList.add('fa-eye');
+            eyeIcon2.classList.remove('fa-eye-slash');
+            eyeIcon2.classList.add('fa-eye');
+        } else {
+            passwordInput.type = 'password';
+            passwordInput2.type = 'password';
+            eyeIcon.classList.remove('fa-eye');
+            eyeIcon.classList.add('fa-eye-slash');
+            eyeIcon2.classList.remove('fa-eye');
+            eyeIcon2.classList.add('fa-eye-slash');
+        }
+    }
     </script>
 </body>
 
